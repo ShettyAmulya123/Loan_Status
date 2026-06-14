@@ -34,10 +34,6 @@ df["loan_status"] = df["loan_status"].map({
     "Rejected": 0
 })
 
-print(df["education"])
-print(df["self_employed"])
-print(df["loan_status"])
-
 # Features and Target
 X = df.drop("loan_status", axis=1)
 y = df["loan_status"]

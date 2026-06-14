@@ -13,17 +13,14 @@ df["education"] = df["education"].str.strip()
 df["self_employed"] = df["self_employed"].str.strip()
 df["loan_status"] = df["loan_status"].str.strip()
 
-print(df["education"])
-print(df["self_employed"])
-print(df["loan_status"])
-
-
 # Encode values
 from sklearn.preprocessing import LabelEncoder
+
+
 le = LabelEncoder()
+
 df["education"] = le.fit_transform(df["education"])
 
-# mannually encode self_employed and loan_status
 df["self_employed"] = df["self_employed"].map({
     "Yes": 1,
     "No": 0
@@ -33,10 +30,6 @@ df["loan_status"] = df["loan_status"].map({
     "Approved": 1,
     "Rejected": 0
 })
-
-print(df["education"])
-print(df["self_employed"])
-print(df["loan_status"])
 
 # Features and Target
 X = df.drop("loan_status", axis=1)
@@ -56,6 +49,5 @@ model = RandomForestClassifier(
 )
 
 model.fit(X_train, y_train)
-predictions = model.predict(X_test)
-print(predictions[:10])
+
 print("Model trained successfully!")

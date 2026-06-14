@@ -14,8 +14,7 @@ df["self_employed"] = df["self_employed"].str.strip()
 df["loan_status"] = df["loan_status"].str.strip()
 
 print(df["education"])
-print(df["self_employed"])
-print(df["loan_status"])
+
 
 
 # Encode values
@@ -33,10 +32,6 @@ df["loan_status"] = df["loan_status"].map({
     "Approved": 1,
     "Rejected": 0
 })
-
-print(df["education"])
-print(df["self_employed"])
-print(df["loan_status"])
 
 # Features and Target
 X = df.drop("loan_status", axis=1)
