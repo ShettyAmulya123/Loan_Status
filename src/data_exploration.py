@@ -10,5 +10,4 @@ print(df.describe())
 print(df.isnull().sum())
 
 df.columns = df.columns.str.strip()
-print(df.columns)
 print(df["loan_status"].value_counts())
